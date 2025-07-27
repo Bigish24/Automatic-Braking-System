@@ -1,0 +1,19 @@
+resetloop:  
+    servo c.0, 75              ; change this to output pin
+    
+    if pin4 = 1 then           ; change this to whatever input is
+        wait 1
+        goto resetloop
+    elseif pin4 = 0 then
+        goto main
+    endif
+
+main:  
+    servo c.0, 150             ; change this to output pin
+    
+    if pin4 = 1 then           ; change this to whatever input is
+        wait 1
+        goto resetloop
+    elseif pin4 = 0 then       ; change this to whatever input is
+        goto main
+    endif
