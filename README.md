@@ -7,6 +7,12 @@ A self-contained automatic braking system for model vehicles, built using PICAXE
 
 This braking system is designed to demonstrate basic embedded control, logical processing, and safety feedback mechanisms using simple hardware. It uses a PICAXE 08M2+ and PICAXE 14M2 to process inputs and drive outputs including a traffic light-style LED warning system and an analogue servo for braking.
 
+| Distance to Object | Motor State | Buzzer State | System Response          |
+|--------------------|-------------|--------------|---------------------------|
+| > 50 cm            | stopped     | Off          | Normal operation          |
+| 34–50 cm           | Stopped     | Off          | Warning stage             |
+| < 34 cm            | Running     | On           | Emergency braking         
+
 ## Features
 
 - Traffic-light-style warning system using red, amber, and green LEDs
@@ -64,6 +70,51 @@ Servo calibration is handled in software, and fine-tuning has been implemented i
 2. Program both PICAXE microcontrollers using the PICAXE Editor and BASIC files.
 3. Connect a stable 4.5V–6V power supply.
 4. Place objects at various distances and observe LED transitions and braking behavior.
+
+
+## Development Diary
+
+### Research Stage
+1. Researched Existing Systems and created an initial research page
+2. Explored the use of an ultrasonic sensor versus LDR
+3. Studied about the use of different buzzers and loudspeakers and their viability
+4. Analysis of all inputs, processes and anaylsis.
+5. Final Analysis of research
+### Specification
+•	Power Supply will be 6V. 4 AA batteries.
+-	Enough voltage for the ultrasonic sensor to be triggered.	
+•	Current Output will be 135mA – 150mA.
+-	To ensure car battery lifespan.
+•	The Ultrasonic sensor must be triggered and controlled by a PIC.
+-	This is because it needs to be triggered to start detecting before the brake is  
+•	System will be armed once distance to object is ¾ of a metre.
+-	To ensure comfortable braking distances
+•	A servo will activate the braking mechanism.
+-	A servo has the same plane of motion as a wheel.
+•	Buzzer must buzz at 400Hz
+-	To create an effect of severity.
+•	LED’s must be on before 1 metre before collision.
+-	To give driver time to react
+•	There will be 3 LED’S
+-	As you get closer to the object the different LED’s turn on to show severity
+
+## Circuit Generation & Analysis
+
+The first official draft of the circuit diagramand comprehensive analysis of each subsystem and their role in the larger system. Embellished with minor analysis of the BOOLEAN logic and output signals of the Microcontroller. Finally a showcase of conditions and outputs for the servo.
+
+## Progression 
+
+Visual representation of the process of seting up the complete functional breadboard. With a final product after development.
+
+## Testing & Analysis
+
+Testing signals using multimeters and an oscilloscope.
+
+## Potential for development
+
+## Function Desc
+
+My circuit uses an Ultrasonic Range finder to measure and calculate distance between itself and an object. The signal it produces is used buy a PIC to control an array of logic which in turns can turn on three LED’s: Green, yellow, red (increasing in danger). If danger is close enough to trigger the red LED. A second PIC is triggered and controls an electromagnetic servo to act as a braking mechanism. This whole process is fully automated as it doesn’t require any input from the driver.
 
 ## License
 
